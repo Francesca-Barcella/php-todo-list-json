@@ -44,7 +44,7 @@ Abilitare l’eliminazione di un task */
 
             <!-- sicuramente ci andrà un ul>li con ciclo v-for e text interpolation per stampare la lista -->
             <ul>
-                <li></li>
+                <li v-for="task in tasks">{{task}}</li>
             </ul>
             
             
