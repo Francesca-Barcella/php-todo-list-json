@@ -52,7 +52,8 @@ Abilitare l’eliminazione di un task */
                     <label for="new_task" class="form-label">Inserisci nuovo task</label>
                     <input type="text" name="new_task" id="new_task" class="form-control" placeholder="nuovo task">
                 </div>
-                <button type="submit" class="p-1 me-1">Aggiungi</button>
+                <!-- CORREZIONE : OCIO CHE MANCA IL V-MODEL!!! -->
+                <button type="submit" class="p-1 me-1" @click="addTask">Aggiungi</button>
                 <button type="reset" class="p-1">Annulla</button>
             </form>
 

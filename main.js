@@ -5,27 +5,44 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            new_task: [],
+
             tasks: [],
             api_url: 'server.php'
         }
     },
-    methods:{
-        callApi(url){
+    methods: {
+        callApi(url) {
             axios.get(url)
-            .then(response => {
-                console.log(response.data);
-                this.tasks = response.data;
-            })
-            //questo metodo .catch serve per intercettera eventuali errori
-            .catch(err => {
-                console.error(err.message);
+                .then(response => {
+                    console.log(response.data);
+                    this.tasks = response.data;
+                })
+                //questo metodo .catch serve per intercettera eventuali errori
+                .catch(err => {
+                    console.error(err.message);
 
-            })
-        }
+                })
+        },
+
+        addTask() {
+            console.log('ho cliccato su add task');
+            //console.log('valore input = ' + this.newTask);
+
+            //devono inserire almeno 5 caratteri
+            //if (this.newTask.length < 5) {
+               // this.error = true
+            //} else {
+                //questi due prima erano fuori e li portiamo dentro l'if-else per risolvere il bug dell'input vuoto
+                //this.tasks.unshift(this.newTask)
+                //this.newTask = ''
+                //this.error = false
+           // }
+        },
     },
     mounted() {
         this.callApi(this.api_url)
-    
+
     },
 }).mount('#app')
 
